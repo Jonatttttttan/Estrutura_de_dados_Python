@@ -1,4 +1,6 @@
+from EstruturaDeDados.Fila.queue import Queue
 
+ROOT = "root"
 
 class Node:
     def __init__(self, data):
@@ -60,6 +62,21 @@ class BinaryTree:
         print(node)
         if node.right:
             self.inorder_traversal(node.right)
+
+    def level_order_traversal(self, node=ROOT):
+        if node == ROOT:
+            node = self.root
+
+        queue = Queue()
+        queue.push(node)
+        while len(queue):
+            node = queue.pop()
+            #print(node.data, end=(" "))
+            if node.left:
+                queue.push(node.left)
+            if node.right:
+                queue.push(node.right)
+            print(node.data, end=" ")
 
 
 
