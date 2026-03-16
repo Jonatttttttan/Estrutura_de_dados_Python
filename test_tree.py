@@ -17,12 +17,34 @@ def example_tree():
         tree.insert(v)
     return tree
 
+def extended_tree():
+    values = [61, 89, 66, 43, 51, 16, 55, 11, 79, 77, 82, 32, 100, 90]
+    tree = BinarySearchTree()
+    for v in values:
+        tree.insert(v)
+    return tree
 
-bst = example_tree()
+
+bst = extended_tree()
 bst.inorder_traversal()
 
 print("\n----")
 bst.level_order_traversal()
+
+print("\n-----")
+print("Máximo:", bst.max())
+print("Mínimo:", bst.min())
+
+# testar remoção da árvore
+print("\n----")
+v = 61
+bst.remove(v)
+print("Após remover {}".format(v))
+bst.inorder_traversal()
+print('\n')
+bst.level_order_traversal()
+
+print('\n')
 
 '''print("\n----")
 items = [1, 3, 981, 510 ,1000]

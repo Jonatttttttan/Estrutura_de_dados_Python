@@ -79,7 +79,7 @@ class BinaryTree:
             print(node.data, end=" ")
 
 
-
+# Complexidade O(h)
 class BinarySearchTree(BinaryTree):
     def insert(self, value):
         parent = None
@@ -114,6 +114,45 @@ class BinarySearchTree(BinaryTree):
             return self._search(value, node.left)
         return self._search(value, node.right)
 
+    def min(self, node=ROOT):
+        if node == ROOT:
+            node = self.root
+        while node.left:
+            node = node.left
+        return node.data
+
+    def max(self, node=ROOT):
+        if node == ROOT:
+            node = self.root
+        while node.right:
+            node = node.right
+        return node.data
+
+
+# remoção de árvore binária
+    def remove(self, value, node=ROOT):
+        if node == ROOT:
+            node = self.root
+
+        if node is None:
+            return node
+
+        if value < node.data:
+            node.left = self.remove(value, node.left)
+        elif value > node.data:
+            node.right = self.remove(value, node.right)
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                substitute = self.min(node.right)
+                node.data = substitute
+                node.right = self.remove(substitute, node.right)
+        return node
+
+
 
 
     ''' def search(self, value, node=0):
@@ -131,7 +170,7 @@ class BinarySearchTree(BinaryTree):
 
 
 
-
+# Fim da classe
 if __name__ == "__main__":
     '''tree = BinaryTree(7)
     tree.root.left = Node(18)
