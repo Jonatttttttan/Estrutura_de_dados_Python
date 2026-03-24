@@ -31,7 +31,7 @@ class BinaryTree:
         if node.right:
             self.simetric_transversal(node.right)
             print(")", end="")
-
+    # subarvore da esquerda, da direita e raiz
     def postorder_transversal(self, node=None):
         if node is None:
             node = self.root
@@ -54,6 +54,7 @@ class BinaryTree:
             return hright + 1
         return hleft + 1
 
+    # Percorre subarvore a esquerda, raiz, subarvore da direita
     def inorder_traversal(self, node=None):
         if node is None:
             node = self.root
@@ -62,7 +63,7 @@ class BinaryTree:
         print(node)
         if node.right:
             self.inorder_traversal(node.right)
-
+    # Percorre por level de nós da esquerda para a direita
     def level_order_traversal(self, node=ROOT):
         if node == ROOT:
             node = self.root
